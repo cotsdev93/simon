@@ -245,4 +245,15 @@ body {
   .startRound {
     margin-top: 20px;
   }
+
+  #round {
+    margin-right: 5px;
+    width: 25px;
+    height: 29px;
+  }
+
+  #nroRound {
+    font-family: "digital";
+    font-size: 25px;
+  }
 }
