@@ -171,17 +171,20 @@ body {
 
 #round {
   margin-right: 10px;
-  width: 20px;
-  height: 30px;
+  width: 25px;
+  height: 32px;
   background-color: rgb(131, 191, 120);
   color: #000000;
   border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  font-family: "digital";
   box-shadow: inset 0px 0px 0.5px 2px rgb(94, 139, 86);
+}
+
+#nroRound {
+  font-family: "digital";
+  font-size: 28px;
 }
 
 .winner {
@@ -192,6 +195,10 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.none {
+  visibility: hidden;
 }
 
 @media (max-width: 600px) {

@@ -1,4 +1,4 @@
-const round = document.getElementById("round");
+const round = document.querySelector(".round");
 const simonButtons = document.querySelectorAll("button");
 const startButton = document.querySelector(".startButton");
 const consola = document.querySelector(".consola");
@@ -116,10 +116,58 @@ class Simon {
     }
   }
 
+  pys() {
+    // setTimeout(()=>{
+    //   round.classList.add("none");
+    // },2200)
+    
+    // setTimeout(() =>{
+    //   round.classList.remove("none")
+    // },2500)
+
+    // setTimeout(()=>{
+    //   round.classList.add("none");
+    // },3200)
+
+    // setTimeout(() =>{
+    //   round.classList.remove("none")
+    // },3500)
+
+    // setTimeout(()=>{
+    //   round.classList.add("none");
+    // },4200)
+
+    // setTimeout(() =>{
+    //   round.classList.remove("none")
+    // },4500)
+
+    const timeouts = [
+      { add: 2200, remove: 2500 },
+      { add: 3200, remove: 3500 },
+      { add: 4200, remove: 4500 }
+    ];
+    
+    timeouts.forEach((timeout, index) => {
+      setTimeout(() => {
+        round.classList.add("none");
+      }, timeout.add);
+    
+      setTimeout(() => {
+        round.classList.remove("none");
+      }, timeout.remove);
+    });
+    
+    console.log("funciona");
+  }
+
   gameLost() {
     this.errorSound.play();
     this.display.startButton.disabled = false;
     this.blockedButtons = true;
+    this.pys();
+    setTimeout(() => {
+      this.updateRound("0");
+    }, 5500);
     simon.init();
   }
 
@@ -142,8 +190,8 @@ class Simon {
     this.userPosition = 0;
     this.sequence = this.createSequence();
     this.speed = 1000;
-    simon.init()
-    this.display.startButton.disabled = false
+    simon.init();
+    this.display.startButton.disabled = false;
   }
 }
 
@@ -154,6 +202,6 @@ simonButtons.forEach((boton) => {
   boton.addEventListener("click", () => {
     setTimeout(() => {
       boton.classList.remove("active");
-    }, 500);
+    }, 200);
   });
 });
